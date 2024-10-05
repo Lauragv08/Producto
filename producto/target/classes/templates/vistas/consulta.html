@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{plantillas/principal :: head}"></head>
+
+<body>
+    <header th:replace="~{plantillas/principal :: header}"></header>
+    <div class="container py-5 cw-50">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h3 class="text-secondary" th:text="${titulo}"></h3>
+            </div>
+            <div class="card-body">
+
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Descripción: </b><i th:text="${producto.descripcion}"></i></li>
+                    <li class="list-group-item"><b>Categoria: </b><i th:text="${producto.categoria}"></i></li>
+                    <li class="list-group-item"><b>Precio: </b><i th:text="${producto.precio}"></i></li>
+                    <li class="list-group-item"><b>Stock: </b><i th:text="${producto.stock}"></i></li>
+                    <li class="list-group-item"><b>Fecha de ultimo ingreso: </b><i th:text="${#dates.format(producto.ultimoIngreso, 'dd/MM/yyyy')}"></i></li>
+                    <li class="list-group-item"><b>Disponible: </b><i th:text="${producto.disponible ? 'Si' : 'No'}"></i></li>
+                    <li class="list-group-item"><b>Observacion: </b><i th:text="${producto.observacion}"></i></li>
+                </ul>
+                <div class="mt-3">
+                    <a class="btn btn-outline-secondary btn-sm" href="#" onclick="history.back()">regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container mt-2" th:replace="~{plantillas/principal :: footer}"></footer>
+</body>
+
+</html>
